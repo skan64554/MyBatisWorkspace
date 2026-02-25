@@ -24,6 +24,12 @@
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
+	
+	<typeAliases>
+		<typeAlias type="com.kh.mybatis.student.service.model.vo.Student"
+			alias="student"
+		/>
+	</typeAliases>
 
   	<!-- 
 		environments
@@ -61,6 +67,7 @@
    -->
   <mappers>
     <mapper resource="/mapper/student/student-mapper.xml"/>
+    <mapper resource="/mapper/emp/emp-mapper.xml"/>
   </mappers>
 </configuration>
 

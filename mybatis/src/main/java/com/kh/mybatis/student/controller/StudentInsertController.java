@@ -41,7 +41,7 @@ public class StudentInsertController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// 사용자가 입력한 값들을 파라미터로 추출하여,
 			// vo클래스로 가공처리
-			request.setCharacterEncoding("UTF-8");
+
 			String name = request.getParameter("name");
 			String tel = request.getParameter("tel");
 			
@@ -59,8 +59,10 @@ public class StudentInsertController extends HttpServlet {
 				// dml 처리완료 후 request스코프에 저장된 데이터를 초기화 하려면?
 				// 재요청(redirect)을 보내면 된다.
 			}else{
-				
+				request.getSession().setAttribute("msg", "학생 등록 실패");
 			}
+			// dml처리완료 후 request스코프에 저장된 데이터를 초기화 하러면?
+			response.sendRedirect(request.getContextPath()+"/student/insertStudent");
 	}
 
 }
